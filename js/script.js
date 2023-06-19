@@ -11,7 +11,7 @@ function validaCPF(){
 
     if (cpf.lenght !== 11) {
         mostraResultado ('O CPF deve conter 11 digitos', 'red');
-        return;
+        return false;
     }
 
     if (verificaDigitosRepetidos(cpf)){
@@ -20,21 +20,19 @@ function validaCPF(){
     }
     
     const digito1 = calcularDigitoVerificador (cpf,1);
-    
-    if (!digito1){
+        if (!digito1){
         mostraResultado('CPF inválido - ${cpfFormatado}', 'red');
         return;
     }
 
     const digito2 = calcularDigitoVerificador (cpf,2);
-    
-    if (!digito2){
+        if (!digito2){
         mostraResultado('CPF inválido - ${cpfFormatado}', 'red');
         return;
     }
-    else{
-        mostraResultado('CPF válido!','green');
-    }
+    
+    mostraResultado('CPF válido!','green');
+    
 }
 
 function calcularDigitoVerificador(cpf, posicao){
@@ -61,7 +59,7 @@ function limpaFormatacao(cpf){
     return cpf;
 }
 function mostraResultado (texto, cor) {
-    const span = document.getElementById ('resultado');
+    const span = document.getElementById('resultado');
     span.innerHTML = texto;
     span.style.color = cor;
 }
