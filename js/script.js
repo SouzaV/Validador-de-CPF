@@ -54,7 +54,7 @@ function calcularDigitoVerificador(cpf, posicao){
 }
 
 function limpaFormatacao(cpf){
-    cpf = cpf.replace(/\D/g,'');
+    cpf = cpf.replace(/[^\d]+/g,'');
 
     return cpf;
 }
